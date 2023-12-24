@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<canvas id="myCanvas" width="2000px" height="1000px"></canvas>
+
+	<script type="text/javascript">
+		let canvas = document.getElementById('myCanvas');
+        let cxt = canvas.getContext('2d');
+
+        let number = 1000;
+        let max = 100;
+        let min = 50;
+
+        let colors =["cornsilk", "wheat", "bisque", "tan", "peru", "chocolate", "olive", "sienna","maroon", "brown", "blanchedalmond", "burlywood", "sandybrown", "goldenrod"];
+        let numberColor = colors.length;
+
+        for(let i = 0; i < number; i++){
+        let width = Math.random() * 2000;
+        let height = Math.random() * 1000;
+        let radius = min + (Math.random() * (max-min));
+        let colorIndex = Math.round(Math.random() * (numberColor - 1));
+        let color = colors[colorIndex];
+
+
+        cxt.beginPath();
+        cxt.arc(width, height, radius, Math.PI* 0, Math.PI*2, false);
+        cxt.fillStyle = color;
+        cxt.fill();
+    }
+
+	</script>
+</body>
+</html>
